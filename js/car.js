@@ -34,7 +34,7 @@ const data = [
       
     },
   ];
-
+/* 
   const divContainer = document.getElementById('div-container');
 
   const div = document.createElement('div');
@@ -72,3 +72,32 @@ const data = [
 
   `
   divContainer.appendChild(div2);
+ */
+
+function createCard(datas) {
+    const div = document.createElement('div');
+    div.classList.add('col');
+  
+    div.innerHTML = `
+      <div class="card p-2">
+        <img src="${datas.imageURL}" class="card-img-top img-fluid" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">${datas.name}</h5>
+          <p class="card-text">${datas.description}</p>
+          <button class="btn btn-primary border-0">Car Price: ${datas.price}</button>
+        </div>
+      </div>
+    `;
+  
+    return div;
+  }
+  
+
+  // Example usage:
+  const divContainer = document.getElementById('div-container');
+  const cardElements = data.map(createCard);
+  console.log(...cardElements);
+  divContainer.append(...cardElements);
+  
+
+  
